@@ -2,6 +2,9 @@
 .pufo
 node_modules/
 dist/
+trained_models
+training_checkpoints
+tfjs_artifacts/
 
 # local env files
 .env.local

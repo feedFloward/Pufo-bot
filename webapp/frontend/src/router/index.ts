@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '../views/Home.vue';
-import Ping from '../components/Ping.vue';
+import PufoBot from '../components/PufoBot.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/ping',
-    name: 'Ping',
-    component: Ping,
+    path: '/',
+    name: 'Pufo-bot',
+    component: PufoBot,
   },
 ];
 
