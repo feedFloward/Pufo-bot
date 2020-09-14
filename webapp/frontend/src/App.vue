@@ -1,10 +1,26 @@
 <template>
-  <div id="app">
+  <v-app id="app">
+
+  <div>
+      <v-main>
     <div id="nav">
       <router-view></router-view>
     </div>
+      </v-main>
   </div>
+  </v-app>
 </template>
+
+<script lang="ts">
+
+export default {
+  name: 'App',
+  data() {
+    return {
+    };
+  },
+};
+</script>
 
 <style>
 #app {
