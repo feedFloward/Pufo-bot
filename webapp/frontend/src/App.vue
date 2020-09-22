@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-
+    <Navbar/>
   <div>
       <v-main>
     <div id="nav">
@@ -12,9 +12,13 @@
 </template>
 
 <script lang="ts">
+import Navbar from './components/Navbar.vue';
 
 export default {
   name: 'App',
+  components: {
+    Navbar,
+  },
   data() {
     return {
     };

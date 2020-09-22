@@ -2,20 +2,22 @@
   <div>
     <v-row>
       <v-col cols='2'>
+        <v-card>
+          <v-card-header>
+            craziness der Folge
+          </v-card-header>
         <v-slider
         v-model="temperature"
-        :max="2"
-        :min="0.1"
+        :max="1.5"
+        :min="0.5"
         :step="0.1"
         thumb-label="always"
         ></v-slider>
+        </v-card>
       </v-col>
       <v-col>
-        <v-row  justify="center">
-          <h1>Pufo BOT</h1>
-        </v-row>
         <v-row justify="center">
-          <v-btn @click='generateStateful'>Starte Folge</v-btn>
+          <v-btn @click='generate'>Starte Folge</v-btn>
         </v-row>
         <v-row justify="center">
           <span style="white-space: pre-line">{{ generatedText }}</span>
@@ -32,6 +34,8 @@
 import axios from 'axios';
 import * as tf from '@tensorflow/tfjs';
 
+const episodeLength = 50000;
+
 export default {
   name: 'PufoBot',
 
@@ -41,7 +45,7 @@ export default {
       char2idx: null,
       idx2char: null,
       temperature: 1,
-      startString: 'STEFAN:',
+      startString: 'STEFAN:\nHallo',
       generatedText: '',
     };
   },
@@ -60,10 +64,11 @@ export default {
     },
 
     async generate() {
+      this.model.resetStates();
       let char = this.startString;
       let lastChars = char;
       this.generatedText = char;
-      while (this.generatedText.length < 2000) {
+      while (this.generatedText.length < episodeLength) {
         /* eslint-disable no-await-in-loop */
         char = await this.predictChar(lastChars);
         this.generatedText = this.generatedText.concat(char);
@@ -75,9 +80,10 @@ export default {
     },
 
     async generateStateful() {
+      this.model.resetStates();
       let char = this.startString;
       this.generatedText = char;
-      while (this.generatedText.length < 2000) {
+      while (this.generatedText.length < episodeLength) {
         /* eslint-disable no-await-in-loop */
         char = await this.predictChar(char);
         this.generatedText = this.generatedText.concat(char);
