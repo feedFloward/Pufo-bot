@@ -8,16 +8,19 @@
     </div>
       </v-main>
   </div>
+    <Footer/>
   </v-app>
 </template>
 
 <script lang="ts">
 import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
     Navbar,
+    Footer,
   },
   data() {
     return {

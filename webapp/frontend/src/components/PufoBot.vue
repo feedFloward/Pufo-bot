@@ -4,15 +4,17 @@
       <v-col cols='2'>
         <v-card>
           <v-card-header>
+            <h3>
             craziness der Folge
+            </h3>
           </v-card-header>
-        <v-slider
-        v-model="temperature"
-        :max="1.5"
-        :min="0.5"
-        :step="0.1"
-        thumb-label="always"
-        ></v-slider>
+            <v-slider
+            v-model="temperature"
+            :max="1.5"
+            :min="0.5"
+            :step="0.1"
+            thumb-label
+            ></v-slider>
         </v-card>
       </v-col>
       <v-col>
