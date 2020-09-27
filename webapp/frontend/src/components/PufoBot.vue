@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import * as tf from '@tensorflow/tfjs';
 
 const episodeLength = 50000;
